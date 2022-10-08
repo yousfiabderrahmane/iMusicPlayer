@@ -12,7 +12,7 @@ const cover = document.getElementById("cover");
 // song titles
 const songs = ["eminem", "lartiste", "smallX"];
 // keep track of song
-let songIndex = 2;
+let songIndex = 0;
 
 // Initially load song details into DOM
 loadSong(songs[songIndex]);
@@ -49,3 +49,10 @@ playBtn.addEventListener("click", () => {
     playSong();
   }
 });
+
+setTimeout(() => {
+  document.querySelector("#music-container").classList.add("opa");
+}, 600);
+setTimeout(() => {
+  document.querySelector("h1").classList.add("opa");
+}, 200);

@@ -11,6 +11,8 @@ i {
 }
 h1 {
   color: #3e5151;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
 }
 body {
   background-image: linear-gradient(to right, #decba4, #3e5151);
@@ -32,6 +34,11 @@ body {
   margin: 100px 0;
   z-index: 10;
   text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.opa {
+  opacity: 1;
 }
 
 .img-container {
