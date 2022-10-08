@@ -39,6 +39,24 @@ function pauseSong() {
   playBtn.querySelector("i.fas").classList.add("fa-play");
   audio.pause();
 }
+// Next song
+function nextSong() {
+  songIndex++;
+  if (songIndex > 2) {
+    songIndex = 0;
+  }
+  loadSong(songs[songIndex]);
+  playSong();
+}
+// Prev song
+function prevSong() {
+  songIndex--;
+  if (songIndex < 0) {
+    songIndex = songs.length - 1;
+  }
+  loadSong(songs[songIndex]);
+  playSong();
+}
 
 // Event listeners
 playBtn.addEventListener("click", () => {
@@ -56,3 +74,7 @@ setTimeout(() => {
 setTimeout(() => {
   document.querySelector("h1").classList.add("opa");
 }, 200);
+
+// Change son
+prevBtn.addEventListener("click", prevSong);
+nextBtn.addEventListener("click", nextSong);
