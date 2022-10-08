@@ -1,16 +1,19 @@
 * {
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
+  margin: 0;
 }
 img {
   height: 200px;
 }
+i {
+  filter: drop-shadow(0px 5px 8px #decba4);
+}
+h1 {
+  color: #3e5151;
+}
 body {
-  background-image: linear-gradient(
-    0deg,
-    rgba(247, 247, 247, 1) 23.8%,
-    rgba(252, 221, 221, 1) 92%
-  );
+  background-image: linear-gradient(to right, #decba4, #3e5151);
   height: 100vh;
   overflow: hidden;
   display: flex;
@@ -22,18 +25,32 @@ body {
 .music-container {
   background-color: white;
   border-radius: 15px;
-  box-shadow: 0 20px 20px 0 rgba(252, 169, 169, 0.6);
+  box-shadow: 0 0px 20px 0 #3e5151;
   display: flex;
   padding: 20px 30px;
   position: relative;
   margin: 100px 0;
   z-index: 10;
+  text-align: center;
 }
 
 .img-container {
   position: relative;
   width: 110px;
 }
+.img-container::after {
+  content: "";
+  background-color: gray;
+  opacity: 0.5;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  height: 20px;
+  width: 20px;
+  transform: translate(-50%, 100%);
+}
+
 .img-container img {
   border-radius: 50%;
   object-fit: cover;
@@ -44,6 +61,7 @@ body {
   left: 0;
   animation: rotate 3s linear infinite;
   animation-play-state: paused;
+  filter: drop-shadow(0px 5px 8px #decba4);
 }
 
 .music-container.play .img-container img {
@@ -79,4 +97,37 @@ body {
 .action-btn-big {
   color: #cdc2d0;
   font-size: 30px;
+}
+.music-info {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: calc(100% - 40px);
+  padding: 10px 10px 10px 150px;
+  opacity: 0;
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+  z-index: 0;
+}
+
+.music-container.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+.progress-container {
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 4px;
+  width: 100%;
+}
+.progress {
+  background-color: #fe8daa;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
 }
